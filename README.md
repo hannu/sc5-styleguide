@@ -1,4 +1,4 @@
-# Styleguide generator
+# SC5 Styleguide generator
 
 Styleguide generator is a handy little tool that helps you generate good looking
 styleguides from stylesheets using KSS notation. Styleguide generator can be
