@@ -276,24 +276,23 @@ $mobile: new-breakpoint(max-width 480px);
 
 .sg.wrapper {
   position: relative;
-  @include outer-container;
+  max-width: 1400px;
+  margin: 0 auto 0 auto;
   padding-top: 2em;
 }
 
 .sg.side-nav {
-  @include span-columns(3);
-  @include media($mobile) {
-    @include span-columns(12);
-  }
-  padding: 1em;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  box-sizing: border-box;
+  padding-right: 2em;
 }
 
 .sg.body {
-  @include span-columns(9);
-  @include media($mobile) {
-    @include span-columns(12);
-    padding: 1em;
-  }
+  margin: 0 400px 0 200px;
 
   // Remove top margin from first header in markdown and in every section
   // Make sure that style does not leak to previews
@@ -307,10 +306,14 @@ $mobile: new-breakpoint(max-width 480px);
   }
 }
 
-.sg.wrapper.collapsed {
-  .sg.body {
-    @include span-columns(12);
-  }
+.sg.design {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding-left: 2em;
+  width: 400px;
+  box-sizing: border-box;
 }
 
 // Header and footer
@@ -392,6 +395,7 @@ $mobile: new-breakpoint(max-width 480px);
 // Styleguide 3.2.2
 
 .sg.footer {
+  clear: both;
   width: 100%;
   padding: 2em;
   text-align: center;
@@ -475,9 +479,6 @@ $mobile: new-breakpoint(max-width 480px);
 }
 
 .sg.side-nav {
-  height: 100%;
-  vertical-align: top;
-
   ul {
     margin-top: 2em;
     background: rgba(#fff, 1);
@@ -816,17 +817,8 @@ $mobile: new-breakpoint(max-width 480px);
 // Styleguide 4.1
 
 .sg.design {
-  position: fixed;
-  top: 0;
-  left: 100%;
-  width: $designer-tool-width;
-  height: 100%;
-  border-top: 1px solid rgba(#000, 0.3);
-  border-bottom: 1px solid rgba(#000, 0.3);
-  border-left: 1px solid rgba(#000, 0.3);
-  z-index: 9000;
-
   background: rgba(#fff, 1);
+  border-left: 1px solid $secondary-color;
   @include transition(left 0.3s ease-out);
 
   .handle {
@@ -846,14 +838,6 @@ $mobile: new-breakpoint(max-width 480px);
     cursor: pointer;
     @include transform(rotate(-90deg));
     @include transform-origin(left top);
-  }
-
-  &.sg-hidden {
-    left: 100%;
-  }
-
-  &.sg-visible {
-    left: 100% - $designer-tool-width;;
   }
 }
 
