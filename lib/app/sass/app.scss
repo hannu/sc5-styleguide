@@ -59,7 +59,9 @@ body.sg {
 // .color_darken - Darker than default action color
 //
 // markup:
-// <div class="styleguide-color {$modifiers}"></div>
+// <div class="styleguide-color {$modifiers}">BARFOO</div>
+//
+// <div class="styleguide-color {$modifiers}">FOOBAR</div>
 //
 // Styleguide 1.1.1
 

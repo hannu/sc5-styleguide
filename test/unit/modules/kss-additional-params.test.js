@@ -46,50 +46,74 @@ describe('Parsing KSS additional params', function() {
     expect(params).eql(result);
   });
 
-  it('Should parse multiple params', function() {
+  it('should parse multiple params', function() {
     // jscs:disable
     var str = multiline(function() {
       /*
-// sg-param1:
-// Value
+//sg-param1:
+//Value1
 //
-// sg-param2:
-// Value
+//sg-param2:
+//Value2
 //
-// sg-param3:
-// Value
+//sg-param3:
+//Value3
       */
       }),
       // jscs:enable
       result = {
-        'sg-param1':' Value',
-        'sg-param2':' Value',
-        'sg-param3':' Value'
+        'sg-param1': 'Value1',
+        'sg-param2': 'Value2',
+        'sg-param3': 'Value3'
       },
       params = kssAdditionalParams.get(str);
 
     expect(params).eql(result);
   });
 
-  it('Should gulp different space combinations', function() {
+  it('should not detect parameters with spaces', function() {
     // jscs:disable
     var str = multiline(function() {
       /*
-// sg-param1 :
-// Value
+//sg-param1:
+//Value1
+//
+//with space:
+//something
 //
 //sg-param2:
-// Value
-//
-//   sg-param3:
-// Value
+//Value2
       */
       }),
       // jscs:enable
       result = {
-        'sg-param1':' Value',
-        'sg-param2':' Value',
-        'sg-param3':' Value'
+        'sg-param1': 'Value1\n\nwith space:\nsomething',
+        'sg-param2': 'Value2'
+      },
+      params = kssAdditionalParams.get(str);
+
+    expect(params).eql(result);
+  });
+
+  it('should gulp different space combinations', function() {
+    // jscs:disable
+    var str = multiline(function() {
+      /*
+// sg-param1 :
+// Value1
+//
+//sg-param2:
+// Value2
+//
+//   sg-param3:
+// Value3
+      */
+      }),
+      // jscs:enable
+      result = {
+        'sg-param1':' Value1',
+        'sg-param2':' Value2',
+        'sg-param3':' Value3'
       },
       params = kssAdditionalParams.get(str);
 
@@ -102,23 +126,52 @@ describe('Parsing KSS additional params', function() {
       /*
 // Something here
 //
-// sg-param1 :
-// Value
+// sg-param1:
+// Value1
 //
 //sg-param2:
-// Value
+// Value2
 //
 // sg-empty-param:
 //
 //   sg-param3:
-// Value
+// Value3
       */
       }),
       // jscs:enable
       result = {
-        'sg-param1':' Value',
-        'sg-param2':' Value',
-        'sg-param3':' Value'
+        'sg-param1':' Value1',
+        'sg-param2':' Value2',
+        'sg-param3':' Value3'
+      },
+      params = kssAdditionalParams.get(str);
+
+    expect(params).eql(result);
+  });
+
+  it('should parse blocks that contains empty lines', function() {
+    // jscs:disable
+    var str = multiline(function() {
+      /*
+// Something here
+//
+// sg-param1:
+// Value1 part1
+//
+// Value1 part2
+//
+// sg-param2:
+// Value2 part1
+//
+//
+// Value2 part2
+//
+      */
+      }),
+      // jscs:enable
+      result = {
+        'sg-param1':' Value1 part1\n\n Value1 part2',
+        'sg-param2':' Value2 part1\n\n\n Value2 part2'
       },
       params = kssAdditionalParams.get(str);
 
