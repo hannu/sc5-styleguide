@@ -184,7 +184,7 @@ describe('Variable Parser', function() {
           */
         });
         expect(parser.findVariables(str)).eql([]);
-      })
+      });
     });
 
     describe('LESS syntax', function() {
