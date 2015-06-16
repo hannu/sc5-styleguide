@@ -50,6 +50,8 @@ describe('Variable Parser', function() {
           /*
           $var4: value1;
           $same: file3;
+          $dupl: value1;
+          $dupl: value1;
           */
         }),
         'aaa.scss': multiline(function() {
@@ -90,6 +92,21 @@ describe('Variable Parser', function() {
       parser.parseVariableDeclarationsFromFiles(files).then(function(variables) {
         expect(variables[2].name).to.eql('same');
         expect(variables[5].name).to.eql('same');
+      }).then(done).catch(done);
+    });
+
+    it('should mark variables as readonly if it is defined multiple times', function(done) {
+      parser.parseVariableDeclarationsFromFiles(files).then(function(variables) {
+        expect(variables[0].readonly).not.to.eql(true);
+        expect(variables[1].readonly).not.to.eql(true);
+        expect(variables[2].readonly).not.to.eql(true);
+        expect(variables[3].readonly).not.to.eql(true);
+
+        expect(variables[6].name).to.eql('dupl');
+        expect(variables[7].name).to.eql('dupl');
+        expect(variables[6].readonly).to.eql(true);
+        expect(variables[7].readonly).to.eql(true);
+
       }).then(done).catch(done);
     });
 
