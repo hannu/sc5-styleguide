@@ -364,13 +364,14 @@ input.sg {
   width: 100%;
   padding: 0;
   color: rgba(#fff, 1);
-  background: rgba($primary-color, 1);
+  background: $header-background-color;
 
   pre {
     clear: both;
   }
 
   .sg-inner {
+    box-sizing: border-box;
     padding-top: 20px;
     height: 100%;
     padding-right: $content-margin - $min-content-margin;
@@ -508,7 +509,7 @@ input.sg {
 
 .sg.sg-top-nav {
   clear: both;
-  background-color: $primary-color;
+  background-color: $nav-background-color;
   z-index: 8000;
   width: 100%;
 }
