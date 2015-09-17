@@ -350,9 +350,9 @@ input.sg {
 // .error - Error state
 //
 // markup:
-// <header class="sg header {$modifiers}">
-//   <div class="inner">
-//     <div class="title">
+// <header class="sg sg-header {$modifiers}">
+//   <div class="sg-inner">
+//     <div class="sg-title">
 //       <h1>Title</h1>
 //     </div>
 //   </div>
@@ -475,7 +475,7 @@ input.sg {
 // Navigation provides navigation menu between different sections
 //
 // markup:
-// <ul class="sg top-nav-menu">
+// <ul class="sg sg-top-nav-menu">
 //   <li>
 //     <a><span class="ref">1.0</span> First section</a>
 //   </li>
@@ -501,7 +501,7 @@ input.sg {
 // </li>
 //
 // sg-wrapper:
-// <ul class="sg top-nav-menu">
+// <ul class="sg sg-top-nav-menu">
 // <sg-wrapper-content/>
 // </ul>
 //
@@ -643,8 +643,8 @@ input.sg {
 // KSS reference numbers.
 //
 // Markup:
-// <header class="sg section-header">
-//   <h1 class="sg"><span class="reference-number">1.0</span> Section title </h1>
+// <header class="sg sg-section-header">
+//   <h1 class="sg"><span class="sg-reference-number">1.0</span> Section title </h1>
 // </header>
 //
 // Styleguide 3.4.
@@ -744,8 +744,8 @@ input.sg {
 // KSS reference numbers.
 //
 // Markup:
-// <secion class="sg section">
-//   <div class="sg section-partial">
+// <secion class="sg sg-section">
+//   <div class="sg sg-section-partial">
 //     <p class="sg">Section description</p>
 //     <ul class="sg modifier-list">
 //       <li class="item"><strong>.modifier1</strong> - <span>Modifier1 description</span></li>
@@ -753,8 +753,8 @@ input.sg {
 //       <li class="item"><strong>.modifier3</strong> - <span>Modifier3 description</span></li>
 //     </ul>
 //   </div>
-//   <div class="sg section-partial">
-//     <div class="sg label">
+//   <div class="sg sg-section-partial">
+//     <div class="sg sg-label">
 //       <a ng-href="0.0.0-0/fullscreen" target="_blank">
 //         <span class="sg name">.modifier1</span><i class="fa fa-arrows-alt"></i>
 //       </a>
@@ -763,8 +763,8 @@ input.sg {
 //       <div style="width: 100px; height: 100px; background: #1695A3;"></div>
 //     </div>
 //   </div>
-//   <div class="sg section-partial">
-//     <div class="sg label">
+//   <div class="sg sg-section-partial">
+//     <div class="sg sg-label">
 //       <a ng-href="0.0.0-1/fullscreen" target="_blank">
 //         <span class="sg name">.modifier2</span><i class="fa fa-arrows-alt"></i>
 //       </a>
@@ -773,8 +773,8 @@ input.sg {
 //       <div style="width: 100px; height: 100px; background: #ACF0F2;"></div>
 //     </div>
 //   </div>
-//   <div class="sg section-partial">
-//     <div class="sg label">
+//   <div class="sg sg-section-partial">
+//     <div class="sg sg-label">
 //       <a ng-href="0.0.0-2/fullscreen" target="_blank">
 //         <span class="sg name">.modifier3</span><i class="fa fa-arrows-alt"></i>
 //       </a>
@@ -783,8 +783,8 @@ input.sg {
 //       <div style="width: 100px; height: 100px; background: #EB7F00;"></div>
 //     </div>
 //   </div>
-//   <div class="sg section-partial code-listing">
-//     <div class="sg label">
+//   <div class="sg sg-section-partial sg-code-listing">
+//     <div class="sg sg-label">
 //       <a target="_blank">
 //         <i class="fa fa-close"></i>
 //       </a>
